@@ -1,5 +1,5 @@
 {
-  "name": "fullstack-app",
+  "name": "fullstack-mongodb-app-template",
   "version": "1.0.0",
   "description": "Full stack application with Node.js, MongoDB, and AWS Lambda",
   "private": true,
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/fullstack-app.git"
+    "url": "https://github.com/mathewt/fullstack-mongodb-app-template.git"
   },
   "keywords": [
     "nodejs",
