@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Application</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Full Stack Items App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Items</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Alert Container -->
+    <div class="alert-container" id="alertContainer"></div>
+
+    <!-- Main Content -->
+    <div class="app-container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Item Manager</h1>
+            </div>
+        </div>
+
+        <!-- Create Item Form -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Create New Item</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="createItemForm">
+                            <div class="mb-3">
+                                <label for="itemName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="itemName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="itemDescription" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Item</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Items List -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Items</h5>
+                        <button class="btn btn-sm btn-outline-primary" id="refreshBtn">Refresh</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="loading" id="loading">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <div id="itemsList" class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

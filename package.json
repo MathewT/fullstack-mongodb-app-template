@@ -1,0 +1,39 @@
+{
+  "name": "fullstack-app",
+  "version": "1.0.0",
+  "description": "Full stack application with Node.js, MongoDB, and AWS Lambda",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "yarn install && cd frontend && yarn install && cd ../backend && yarn install",
+    "dev": "docker compose up",
+    "dev:build": "docker compose up --build",
+    "down": "docker compose down",
+    "clean": "docker compose down -v",
+    "logs": "docker compose logs -f",
+    "backend": "cd backend && yarn dev",
+    "frontend": "cd frontend && yarn dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/fullstack-app.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "aws-lambda",
+    "bootstrap",
+    "gulp",
+    "sass",
+    "docker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0"
+  }
+}
