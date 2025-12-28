@@ -38,6 +38,7 @@ const handlers = {
   // GET /items - List all items
   async getItems() {
     try {
+      console.log('Fetching all items from database');
       const items = await Item.find().sort({ createdAt: -1 });
       return createResponse(200, { success: true, data: items });
     } catch (error) {
@@ -111,7 +112,7 @@ const handlers = {
 
 // Main Lambda Handler
 exports.handler = async (event) => {
-  console.log('Event:', JSON.stringify(event, null, 2));
+  console.log('Hello Event:', JSON.stringify(event, null, 2));
 
   // Handle OPTIONS for CORS
   if (event.httpMethod === 'OPTIONS' || event.requestContext?.http?.method === 'OPTIONS') {
@@ -120,11 +121,11 @@ exports.handler = async (event) => {
 
   try {
     // Connect to database
-    await connectToDatabase();
+    // await connectToDatabase();
 
     // Parse request
     const request = parseRequest(event);
-    console.log('Parsed request:', request);
+    console.log('try Parsed request:', request);
 
     // Route the request
     if (request.resource === 'items') {
