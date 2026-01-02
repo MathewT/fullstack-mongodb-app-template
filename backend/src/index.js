@@ -121,19 +121,26 @@ exports.handler = async (event) => {
 
   try {
     // Connect to database
-    // await connectToDatabase();
+    await connectToDatabase();
 
     // Parse request
-    const request = parseRequest(event);
+    let request = parseRequest(event);
     console.log('try Parsed request:', request);
 
     // Route the request
     if (request.resource === 'items') {
       if (request.method === 'GET') {
+        console.log('GET /items endpoint hit', request.path);
         if (request.id) {
           return await handlers.getItem(request.id);
         }
         return await handlers.getItems();
+      console.log('GET /items endpoint hit', request.path);
+      return createResponse(200, { 
+        success: true, 
+        message: 'API GET /items is running',
+        timestamp: new Date().toISOString()
+      });
       }
       
       if (request.method === 'POST') {
@@ -149,8 +156,13 @@ exports.handler = async (event) => {
       }
     }
 
+    console.log('No matching route found for', request.method, request.resource);
+    request = parseRequest(event);
+    console.log('try Parsed request again:', request);
+
     // Handle health check
-    if (request.path === '/health' || request.path === '/') {
+    if (request.path === '/health2' || request.path === '/' || request.path === '/health') {
+      console.log('Health check endpoint hit', request.path);
       return createResponse(200, { 
         success: true, 
         message: 'API is running',
