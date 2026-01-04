@@ -3,6 +3,8 @@ node_modules/
 yarn-error.log
 .yarn/
 .pnp.*
+*.zip
+*no-commit*
 backend/deploy-no-commit.sh
 
 # Environment variables

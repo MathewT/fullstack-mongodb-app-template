@@ -386,8 +386,11 @@ The backend is designed to run as an **AWS Lambda function** but includes a loca
 **1️⃣ Package the backend code:**
 ```bash
 cd backend
+docker run --rm -ti -v "$(pwd)":/usr/src/app exp2-backend:latest /bin/sh
+cd /usr/src/app
 yarn install --production
-zip -r function.zip src/ node_modules/ package.json
+exit
+./deploy.sh
 ```
 
 **2️⃣ Create Lambda function** in AWS Console or using AWS CLI
