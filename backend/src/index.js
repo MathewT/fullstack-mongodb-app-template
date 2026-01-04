@@ -112,7 +112,7 @@ const handlers = {
 
 // Main Lambda Handler
 exports.handler = async (event) => {
-  console.log('Hello Event:', JSON.stringify(event, null, 2));
+  console.log('SMT: Event:', JSON.stringify(event, null, 2));
 
   // Handle OPTIONS for CORS
   if (event.httpMethod === 'OPTIONS' || event.requestContext?.http?.method === 'OPTIONS') {
@@ -171,6 +171,7 @@ exports.handler = async (event) => {
     }
 
     // Route not found
+    console.warn('Route not found:', request.method, request.path);
     return createResponse(404, { 
       success: false, 
       error: 'Route not found',

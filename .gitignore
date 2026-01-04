@@ -5,6 +5,7 @@ yarn-error.log
 .pnp.*
 *.zip
 *no-commit*
+backend/deploy-no-commit.sh
 
 # Environment variables
 .env
